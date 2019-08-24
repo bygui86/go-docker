@@ -19,7 +19,11 @@ docker run -d --name registry \
 * https://stackoverflow.com/questions/45429276/how-to-run-docker-run-using-go-sdk-for-docker
 * https://medium.com/backendarmy/controlling-the-docker-engine-in-go-d25fc0fe2c45
 
+### Issues
+
+* https://github.com/docker/distribution/blob/master/reference/normalize.go
+
 ### Docker Registry UI
 
-* https://github.com/jc21/docker-registry-ui
-* https://hub.docker.com/r/jc21/registry-ui
+* https://github.com/Joxit/docker-registry-ui
+* https://hub.docker.com/r/joxit/docker-registry-ui

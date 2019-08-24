@@ -4,7 +4,7 @@ go 1.12
 
 require (
 	github.com/bygui86/go-debug v0.0.0-20190819124228-333d0a5f59a8 // indirect
-	github.com/docker/distribution v2.7.1+incompatible // indirect
+	github.com/docker/distribution v2.7.1+incompatible
 	github.com/docker/docker v1.13.1
 	github.com/docker/go-connections v0.4.0
 	github.com/docker/go-units v0.4.0 // indirect

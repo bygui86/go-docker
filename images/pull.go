@@ -15,12 +15,17 @@ func Pull(dockerImage string) {
 
 	ctx := context.Background()
 
+	canonicalDockerImage, normErr := NormalizeImageName(dockerImage)
+	if normErr != nil {
+		panic(normErr)
+	}
+
 	cli, cliErr := client.NewEnvClient()
 	if cliErr != nil {
 		panic(cliErr)
 	}
 
-	out, pullErr := cli.ImagePull(ctx, dockerImage, types.ImagePullOptions{})
+	out, pullErr := cli.ImagePull(ctx, canonicalDockerImage, types.ImagePullOptions{})
 	if pullErr != nil {
 		panic(pullErr)
 	}
@@ -35,6 +40,11 @@ func Pull(dockerImage string) {
 func PullWithAuth(dockerImage, username, password string) {
 
 	ctx := context.Background()
+
+	canonicalDockerImage, normErr := NormalizeImageName(dockerImage)
+	if normErr != nil {
+		panic(normErr)
+	}
 
 	cli, cliErr := client.NewEnvClient()
 	if cliErr != nil {
@@ -53,7 +63,7 @@ func PullWithAuth(dockerImage, username, password string) {
 
 	pullOpt := types.ImagePullOptions{RegistryAuth: authStr}
 
-	out, pullErr := cli.ImagePull(ctx, dockerImage, pullOpt)
+	out, pullErr := cli.ImagePull(ctx, canonicalDockerImage, pullOpt)
 	if pullErr != nil {
 		panic(pullErr)
 	}
